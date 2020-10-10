@@ -87,4 +87,5 @@
 			</div>
 		</section>
 	{/if}
+	<a class="github-fork-ribbon right-bottom" target="_blank" href="https://github.com/zidell/whooing-api-test" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
 </main>
