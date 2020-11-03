@@ -23,7 +23,7 @@
 		return !!acc ? acc.title : 'Deleted';
 	}
 
-	const handelInsert = async(e) => {
+	const handleInsert = async(e) => {
 		const data = {
 			section_id: currentSectionId,
 			item: item,
@@ -115,7 +115,7 @@
 </style>
 
 <div>
-	<form on:submit|preventDefault={handelInsert}>
+	<form on:submit|preventDefault={handleInsert}>
 		<div class="input-group">
 			<input
 				type="text"
