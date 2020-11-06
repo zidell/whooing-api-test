@@ -10,6 +10,12 @@
 	let accounts = {};
 
 	onMount(async () => {
+		const userResponse = await fetch(`${appHost}/api/user.json_array`, getFetchHeader()).then(res => res.json());
+		console.log('userResponse', userResponse);
+		if (userResponse.code !== 200) {
+			throw new Error(userResponse.message);
+		}
+
 		const sectionResponse = await fetch(`${appHost}/api/sections.json_array`, getFetchHeader()).then(res => res.json());
 		if (sectionResponse.code !== 200) {
 			throw new Error(sectionResponse.message);

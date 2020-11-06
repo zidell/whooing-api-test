@@ -41,7 +41,7 @@
 			<input type="text" pattern="^https:\/\/([a-z0-9]+\.)?whooing\.com" bind:value={appHost} class="form-control" required placeholder="whooing_host" />
 		</div>
 		<div class="form-group">
-			<input type="number" pattern="^\d+$" autofocus bind:value={appId} class="form-control" required placeholder="app_id" />
+			<input type="number" pattern="^\d+$" autofocus="autofocus" bind:value={appId} class="form-control" required placeholder="app_id" />
 		</div>
 		<div class="form-group">
 			<input type="text" pattern="^[0-9a-z]+$" bind:value={appSecret} minlength="40" maxlength="40" required class="form-control" placeholder="app_secret" />

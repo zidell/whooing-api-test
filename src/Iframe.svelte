@@ -44,7 +44,7 @@
 
 <div class="inner">
 	{#if requestToken.length === 40}
-		<iframe src={`${appHost}/app_auth/authorize?token=${requestToken}`} frameborder="0"></iframe>
+		<iframe title="" src={`${appHost}/app_auth/authorize?token=${requestToken}`} frameborder="0"></iframe>
 		<form on:submit|preventDefault={handleSubmit}>
 			<div class="input-group input-group-lg">
 				<input
