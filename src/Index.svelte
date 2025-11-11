@@ -132,7 +132,7 @@
 
 		:global(.navbar-custom) {
 			background: #375473;
-			padding: 1rem 0;
+			padding: 0.5rem 0;
 			box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
 			z-index: 10;
 
