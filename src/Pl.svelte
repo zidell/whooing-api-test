@@ -26,7 +26,7 @@
         const start_date = `${py}${pm}${pd}`;
 
         const res = await fetch(
-            `${appHost}/api/pl.json_array?section_id=${currentSectionId}&start_date=${start_date}&end_date=${end_date}`,
+            `${appHost}/api/report/expenses,income.json?section_id=${currentSectionId}&start_date=${start_date}&end_date=${end_date}&rows_type=none`,
             getFetchHeader(),
         ).then((res) => res.json());
         if (res.code !== 200) {

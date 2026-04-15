@@ -16,7 +16,7 @@
         const end_date = `${y}${m}${d}`;
 
         const res = await fetch(
-            `${appHost}/api/bs.json_array?section_id=${currentSectionId}&end_date=${end_date}`,
+            `${appHost}/api/report/assets,liabilities,capital.json?section_id=${currentSectionId}&end_date=${end_date}&rows_type=none`,
             getFetchHeader(),
         ).then((res) => res.json());
         if (res.code !== 200) {
