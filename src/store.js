@@ -9,7 +9,7 @@ export const routes = (() => {
 		if (paths[0] === '') {
 			if (!localStorage.appSecret) {
 				paths[0] = 'setting';
-			} else if (!localStorage.token) {
+			} else if (!localStorage.token && !localStorage.accessToken) {
 				paths[0] = 'login';
 			} else {
 				paths[0] = 'index';
@@ -52,7 +52,45 @@ export const getAccessToken = async (requestToken, pin) => {
 	location.href = '/';
 };
 
+export const getOAuth2AccessToken = async (code) => {
+	const { appHost, appId } = localStorage;
+	const redirectUri = `${location.origin}/redirect2`;
+
+	const res = await fetch(`${appHost}/oauth2/token`, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+		},
+		body: new URLSearchParams({
+			grant_type: 'authorization_code',
+			code,
+			redirect_uri: redirectUri,
+			client_id: appId,
+		}),
+	}).then((res) => res.json());
+
+	if (res.access_token) {
+		localStorage.authType = 'oauth2';
+		localStorage.accessToken = res.access_token;
+		localStorage.refreshToken = res.refresh_token;
+		location.href = '/';
+	} else {
+		alert('OAuth2 token exchange failed.');
+		location.href = '/login';
+	}
+};
+
 export const getFetchHeader = (opts) => {
+	if (localStorage.authType === 'oauth2') {
+		return {
+			...opts,
+			headers: {
+				'Authorization': `Bearer ${localStorage.accessToken}`,
+				'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+			},
+		};
+	}
+
 	const { appId, appSecret } = localStorage;
 
 	const data = {
@@ -79,6 +117,9 @@ export const getFetchHeader = (opts) => {
 export const logout = () => {
 	localStorage.removeItem('token');
 	localStorage.removeItem('tokenSecret');
+	localStorage.removeItem('authType');
+	localStorage.removeItem('accessToken');
+	localStorage.removeItem('refreshToken');
 
 	location.href = '/';
 };

@@ -6,13 +6,15 @@
 	import Login from './Login.svelte';
 	import Iframe from './Iframe.svelte';
 	import Redirect from './Redirect.svelte';
+	import Redirect2 from './Redirect2.svelte';
 
 	const dymanicComponent = {
 		index: Index,
 		setting: Setting,
 		login: Login,
 		iframe: Iframe,
-		redirect : Redirect
+		redirect: Redirect,
+		redirect2: Redirect2
 	};
 
 	const finishTest = () => {
