@@ -40,10 +40,8 @@
 	<h1>Welcome</h1>
 	
 	<div>
-		<button type="button" class="btn btn-primary btn-block" on:click={() => location.href = '/iframe'}>Login with iframe (OAuth 1.0a)</button>
+		<button type="button" class="btn btn-primary btn-block" on:click={() => location.href = '/redirect2'}>Login with OAuth 2.0</button>
 		<div class="or" />
-		<button type="button" class="btn btn-primary btn-block" on:click={() => location.href = '/redirect'}>Login with redirect (OAuth 1.0a)</button>
-		<div class="or" />
-		<button type="button" class="btn btn-success btn-block" on:click={() => location.href = '/redirect2'}>Login with redirect (OAuth 2.0)</button>
+		<button type="button" class="btn btn-outline-secondary btn-block" on:click={() => location.href = '/redirect'}>Login with OAuth 1.0a</button>
 	</div>
 </div>

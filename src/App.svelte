@@ -85,7 +85,7 @@
 				</div>
 			</div>
 			<div class="footer text-center">
-				<a href="https://whooing.com/#forum/developer/ko/api_reference" target="_blank" class="btn btn-link">API Reference</a>
+				<a href="https://whooing.com/api/docs" target="_blank" class="btn btn-link">API Reference</a>
 			</div>
 		</section>
 	{/if}
