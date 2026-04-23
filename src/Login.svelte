@@ -41,7 +41,6 @@
 	
 	<div>
 		<button type="button" class="btn btn-primary btn-block" on:click={() => location.href = '/redirect2'}>Login with OAuth 2.0</button>
-		<div class="or" />
-		<button type="button" class="btn btn-outline-secondary btn-block" on:click={() => location.href = '/redirect'}>Login with OAuth 1.0a</button>
+		<button type="button" class="btn btn-link btn-block text-decoration-underline" style="color:#999;" on:click={() => location.href = '/redirect'}>or alternative OAuth 1.0a</button>
 	</div>
 </div>

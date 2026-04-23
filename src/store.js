@@ -114,7 +114,18 @@ export const getFetchHeader = (opts) => {
 	};
 };
 
-export const logout = () => {
+export const logout = async () => {
+	if (localStorage.authType === 'oauth2' && localStorage.accessToken) {
+		const { appHost } = localStorage;
+		await fetch(`${appHost}/oauth2/revoke`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+			},
+			body: new URLSearchParams({ token: localStorage.accessToken }),
+		}).catch(() => {});
+	}
+
 	localStorage.removeItem('token');
 	localStorage.removeItem('tokenSecret');
 	localStorage.removeItem('authType');
